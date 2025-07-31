@@ -1,9 +1,9 @@
-defmodule Myapp.MixProject do
+defmodule StrudelShowcaseApp.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :myapp,
+      app: :strudel_showcase_app,
       version: "0.1.0",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule Myapp.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Myapp.Application, []},
+      mod: {StrudelShowcaseApp.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -40,6 +40,14 @@ defmodule Myapp.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.3"},
       {:esbuild, "~> 0.9", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
+      {:heroicons,
+       github: "tailwindlabs/heroicons",
+       tag: "v2.1.1",
+       sparse: "optimized",
+       app: false,
+       compile: false,
+       depth: 1},
       {:swoosh, "~> 1.16"},
       {:req, "~> 0.5"},
       {:telemetry_metrics, "~> 1.0"},
@@ -60,10 +68,11 @@ defmodule Myapp.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["esbuild.install --if-missing"],
-      "assets.build": ["esbuild myapp"],
+      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.build": ["tailwind strudel_showcase_app", "esbuild strudel_showcase_app"],
       "assets.deploy": [
-        "esbuild myapp --minify",
+        "tailwind strudel_showcase_app --minify",
+        "esbuild strudel_showcase_app --minify",
         "phx.digest"
       ]
     ]

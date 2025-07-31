@@ -1,5 +1,5 @@
-defmodule MyappWeb.PageController do
-  use MyappWeb, :controller
+defmodule StrudelShowcaseAppWeb.PageController do
+  use StrudelShowcaseAppWeb, :controller
 
   def home(conn, _params) do
     songs = [

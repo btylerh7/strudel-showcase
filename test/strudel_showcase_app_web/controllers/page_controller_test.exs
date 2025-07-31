@@ -1,5 +1,5 @@
-defmodule MyappWeb.PageControllerTest do
-  use MyappWeb.ConnCase
+defmodule StrudelShowcaseAppWeb.PageControllerTest do
+  use StrudelShowcaseAppWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

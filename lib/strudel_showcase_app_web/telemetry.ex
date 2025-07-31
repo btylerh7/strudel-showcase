@@ -1,4 +1,4 @@
-defmodule MyappWeb.Telemetry do
+defmodule StrudelShowcaseAppWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -64,7 +64,7 @@ defmodule MyappWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {MyappWeb, :count_users, []}
+      # {StrudelShowcaseApp, :count_users, []}
     ]
   end
 end

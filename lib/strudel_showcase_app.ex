@@ -1,6 +1,6 @@
-defmodule Myapp do
+defmodule StrudelShowcaseApp do
   @moduledoc """
-  Myapp keeps the contexts that define your domain
+  StrudelShowcaseApp keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

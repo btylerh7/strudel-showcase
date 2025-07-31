@@ -6,16 +6,17 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :myapp, MyappWeb.Endpoint,
+config :strudel_showcase_app, StrudelShowcaseAppWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "PF91qQ7MuaiRCLyUpAoYIHWhdId/U0FWX/qzsGLhXS175/Y0mwEombMTB1TPMq6h",
+  secret_key_base: "XEVvbf+phoYkyxm3RmJlnyDduIA74VBNHvS4Ftxq+T+Kx2R3g1FeXK6N+8OZupXq",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:myapp, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:strudel_showcase_app, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:strudel_showcase_app, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -42,18 +43,18 @@ config :myapp, MyappWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :myapp, MyappWeb.Endpoint,
+config :strudel_showcase_app, StrudelShowcaseAppWeb.Endpoint,
   live_reload: [
     web_console_logger: true,
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/myapp_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/strudel_showcase_app_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :myapp, dev_routes: true
+config :strudel_showcase_app, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"

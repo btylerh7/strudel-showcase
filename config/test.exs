@@ -2,13 +2,13 @@ import Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :myapp, MyappWeb.Endpoint,
+config :strudel_showcase_app, StrudelShowcaseAppWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "EBZ778GVkXHD5i+wO9knEF9pfjUJmZjJgZngGqMltr62bw6TthNFycUsk1m8U3n0",
+  secret_key_base: "BLK3ThanaputL53nIHj3MyUPNjBwQ6qlHiBLiIVQVmi4jIbmO2GaAAaFR1m4SVmK",
   server: false
 
 # In test we don't send emails
-config :myapp, Myapp.Mailer, adapter: Swoosh.Adapters.Test
+config :strudel_showcase_app, StrudelShowcaseApp.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false

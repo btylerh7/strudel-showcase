@@ -1,5 +1,5 @@
-defmodule MyappWeb.StrudelCore do
-  use MyappWeb, :html
+defmodule StrudelShowcaseAppWeb.StrudelCore do
+  use StrudelShowcaseAppWeb, :html
   use Phoenix.Component
   require Logger
 
@@ -7,7 +7,9 @@ defmodule MyappWeb.StrudelCore do
   attr :rest, :global
 
   def render_repl(assigns) do
-    js_base_dir = Path.join([Application.app_dir(:myapp, "priv"), "static", "assets", "js"])
+    js_base_dir =
+      Path.join([Application.app_dir(:strudel_showcase_app, "priv"), "static", "assets", "js"])
+
     full_file_path = Path.join(js_base_dir, assigns.path <> ".js")
 
     script_content =

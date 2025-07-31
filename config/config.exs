@@ -7,19 +7,19 @@
 # General application configuration
 import Config
 
-config :myapp,
+config :strudel_showcase_app,
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :myapp, MyappWeb.Endpoint,
+config :strudel_showcase_app, StrudelShowcaseAppWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: MyappWeb.ErrorHTML, json: MyappWeb.ErrorJSON],
+    formats: [html: StrudelShowcaseAppWeb.ErrorHTML, json: StrudelShowcaseAppWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Myapp.PubSub,
-  live_view: [signing_salt: "KL8wpUmV"]
+  pubsub_server: StrudelShowcaseApp.PubSub,
+  live_view: [signing_salt: "lgWjDUxb"]
 
 # Configures the mailer
 #
@@ -28,16 +28,27 @@ config :myapp, MyappWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :myapp, Myapp.Mailer, adapter: Swoosh.Adapters.Local
+config :strudel_showcase_app, StrudelShowcaseApp.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  myapp: [
+  strudel_showcase_app: [
     args:
       ~w(js/app.js --bundle --target=es2022 --outdir=../priv/static/assets/js --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
+# Configure tailwind (the version is required)
+config :tailwind,
+  version: "4.0.9",
+  strudel_showcase_app: [
+    args: ~w(
+      --input=assets/css/app.css
+      --output=priv/static/assets/css/app.css
+    ),
+    cd: Path.expand("..", __DIR__)
   ]
 
 # Configures Elixir's Logger
