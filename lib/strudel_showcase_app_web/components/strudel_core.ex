@@ -43,7 +43,7 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
     <div class="audio-controls">
       <button id="play">Play</button>
       <button id="stop">Stop</button>
-      <button onclick="window.location.href='/'">Back to Song List</button>
+      <button onclick="window.location.href='/songs'">Back to Song List</button>
     </div>
 
     <script defer>

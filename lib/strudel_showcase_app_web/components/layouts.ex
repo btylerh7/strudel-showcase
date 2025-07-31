@@ -19,13 +19,26 @@ defmodule StrudelShowcaseAppWeb.Layouts do
   end
 
   def app(assigns) do
+    navlinks = [
+      %{href: "/", title: "Home"},
+      %{href: "/songs", title: "Strudel Showcase"}
+    ]
+
+    assigns = assign_new(assigns, :navlinks, fn -> navlinks end)
+
     ~H"""
-    <%!-- <header> --%>
-    <%!--   <p>Strudel Showcase Site - Tyler</p> --%>
-    <%!--   <nav class="navbar"> --%>
-    <%!----%>
-    <%!--   </nav> --%>
-    <%!-- </header> --%>
+    <header>
+      <img phx-track-static src={~p"/assets/images/ChaosEmeraldRed.png"} />
+      <div class="header-text">
+        <p class="title">Chaos Control</p>
+        <p class="tagline">Life is chaotic, write fun html instead</p>
+      </div>
+      <nav class="nav">
+        <%= for navlink <- @navlinks do %>
+          <a href={navlink.href}>{navlink.title}</a>
+        <% end %>
+      </nav>
+    </header>
 
     <main>
       {render_slot(@inner_block)}

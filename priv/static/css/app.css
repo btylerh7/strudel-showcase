@@ -13,6 +13,10 @@ body {
 	color: var(--app-text-color);
 }
 
+h1 {
+	margin-block: 1em;
+}
+
 a {
 	text-decoration: none;
 	color: var(--link-color);

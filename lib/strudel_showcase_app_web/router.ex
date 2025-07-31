@@ -18,11 +18,10 @@ defmodule StrudelShowcaseAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
+    get "/songs", PageController, :songs
   end
 
-  scope "/song", StrudelShowcaseAppWeb do
+  scope "/songs/song", StrudelShowcaseAppWeb do
     pipe_through :browser
 
     get "/:song", PageController, :strudel

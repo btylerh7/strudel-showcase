@@ -2,6 +2,10 @@ defmodule StrudelShowcaseAppWeb.PageController do
   use StrudelShowcaseAppWeb, :controller
 
   def home(conn, _params) do
+    render(conn, :home)
+  end
+
+  def songs(conn, _params) do
     songs = [
       %{href: "/a-little-roll", title: "A Little Roll Never Hurt Anyone"},
       %{href: "/good-luck-babe", title: "Good Luck Babe by Chappell Roan"},
@@ -12,7 +16,7 @@ defmodule StrudelShowcaseAppWeb.PageController do
 
     # The home page is often custom made,
     # so skip the default app layout.
-    render(conn, :home, songs: songs, layout: false)
+    render(conn, :songs, songs: songs, layout: false)
   end
 
   def strudel(conn, %{"song" => song}) do

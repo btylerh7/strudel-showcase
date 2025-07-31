@@ -1,11 +1,3 @@
 <Layouts.app flash={@flash}>
-  <%!-- <Layouts.flash_group flash={@flash} /> --%>
-  <h1>Strudel Showcase Library</h1>
-  <section class="songlinks">
-    <%= for song <- @songs do %>
-      <a href={"/song" <> song.href}>{song.title}</a>
-    <% end %>
-  </section>
-  <style>
-  </style>
+  <h1>Home</h1>
 </Layouts.app>
