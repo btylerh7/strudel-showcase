@@ -72,9 +72,13 @@ nav {
 		padding: 1rem 2rem;
 		
 		&:hover {
-			text-decoration: none;
-			background: var(--accent-color);
+			text-decoration: underline;
+			background-color: var(--accent-color);
 			color: white;
+			background-image: url(/assets/images/black-arms-resized.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
 		}
 		&:visited {
 			color: var(--app-text-color)
@@ -87,6 +91,27 @@ nav {
 .songlinks {
 	display: grid;
 	gap: 1rem;
+}
+.audio-controls {
+	padding-block: 1rem;
+	display: flex;
+	gap: 2rem;
+
+}
+.shadow-button {
+	padding-inline: 1rem;
+	padding-block: 0.5rem;
+	color: white;
+	background: var(--accent-color);
+	border: none;
+	border-radius: 0.5rem;
+
+	&:hover {
+		cursor: pointer;
+		background-image: url(/assets/images/black-arms-resized.png);
+		background-size: cover;
+	}
+
 }
 
 

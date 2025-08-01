@@ -2,7 +2,7 @@
 // @by Tyler
 
 samples('github:btylerh7/audio-samples');
-setcpm(160 / 4);
+setcps(160 / 60 / 4);
 $: sound("<~@7 shadow>");
 const riff = note(`<
     [d@2 [d!2] c@3 d@2 [d!2] a2@2 a2@2 c@2]

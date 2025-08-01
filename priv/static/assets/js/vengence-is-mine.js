@@ -14,6 +14,6 @@ const riff = note(`<
 $: riff.add(note("-12, -5, 0")).sound("gm_distortion_guitar");
 $: riff.add(note("-12")).sound("gm_fretless_bass, z_sine");
 $: stack(
-  sound("[bd ~ ~ bd] [sd ~ bd ~] [~ <bd@3 sd>] [sd <bd@3 sd>]").bank("RolandTR909"),
+  sound("[bd ~ ~ bd] [sd ~ bd ~] [~ <bd@3 sd>] [sd <bd@3 sd>]").bank( "RolandTR909"),
   sound("[hh!4] [[hh*3][hh*2]] [hh!5] [hh!4]").bank("RolandTR808"),
 );

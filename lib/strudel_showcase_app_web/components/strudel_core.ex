@@ -41,8 +41,8 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
       to stop. Alternatively, use the buttons below.
     </p>
     <div class="audio-controls">
-      <button id="play">Play</button>
-      <button id="stop">Stop</button>
+      <button class="shadow-button" id="play">Play</button>
+      <button class="shadow-button" id="stop">Stop</button>
       <button onclick="window.location.href='/songs'">Back to Song List</button>
     </div>
 
