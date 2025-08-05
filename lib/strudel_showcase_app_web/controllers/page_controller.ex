@@ -11,7 +11,8 @@ defmodule StrudelShowcaseAppWeb.PageController do
       %{href: "/good-luck-babe", title: "Good Luck Babe by Chappell Roan"},
       %{href: "/nighttime-chug", title: "Nighttime Chug"},
       %{href: "/synthetic-motor-oil", title: "Synthetic Motor Oil"},
-      %{href: "/vengence-is-mine", title: "Vengence is Mine (From Sonic Adventure 2)"}
+      %{href: "/vengence-is-mine", title: "Vengence is Mine (From Sonic Adventure 2)"},
+      %{href: "/not-elevator-music", title: "Not Elevator Music (wip)"}
     ]
 
     # The home page is often custom made,
