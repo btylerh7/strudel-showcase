@@ -10,7 +10,7 @@ const subBass = sound("z_sine")
             .sustain(1)
             .release(0.3)
             .add(note("0, 0.05"))
-            .distort(1)
+            //.distort(1)
             ._scope()
 
 const pad = input => input.sound("z_sawtooth")

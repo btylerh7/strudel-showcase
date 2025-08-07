@@ -34,7 +34,7 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
 
   def build_strudel_string(filename) do
     js_base_dir =
-      Path.join([Application.app_dir(:strudel_showcase_app, "priv"), "static", "assets", "js"])
+      Path.join([Application.app_dir(:strudel_showcase_app, "priv"), "static", "songs"])
 
     full_file_path = Path.join(js_base_dir, filename <> ".js")
 
