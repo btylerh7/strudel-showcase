@@ -5,13 +5,15 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
 
   attr :path, :string, required: true
   attr :showRepl, :string, required: true
+  attr :title, :string, required: false
   attr :rest, :global
 
   def render(assigns) do
     script_content = build_strudel_string(assigns.path)
+    %{path: path, showRepl: showRepl, title: title} = assigns
 
     style =
-      if assigns.showRepl == "true" do
+      if showRepl == "true" do
         ""
       else
         "display: none !important;"
@@ -21,6 +23,9 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
     assigns = assign(assigns, :style, style)
 
     ~H"""
+    <%= if @title != "" do %>
+      <h1>{@title}</h1>
+    <% end %>
     <.repl_buttons showRepl={@showRepl} />
     <div style={@style}>
       <strudel-editor id="repl">
@@ -54,10 +59,11 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
   attr :showRepl, :string, required: true
 
   def repl_buttons(assigns) do
+    %{showRepl: showRepl} = assigns
     Logger.info(assigns.showRepl)
 
     description_text =
-      if assigns.showRepl == "true" do
+      if showRepl == "true" do
         ~H"""
         <p>
           Click into the editor and press <code>Ctrl + Enter</code>
@@ -83,7 +89,9 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
         <button class="shadow-button" id="play">Play</button>
         <button class="shadow-button" id="stop">Stop</button>
         <%= if @showRepl == "true" do %>
-          <button onclick="window.location.href='/songs'">Back to Song List</button>
+          <button class="shadow-button" onclick="window.location.href='/songs'">
+            Back to Song List
+          </button>
         <% end %>
       </div>
 
