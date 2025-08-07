@@ -28,7 +28,7 @@ defmodule StrudelShowcaseAppWeb.Layouts do
 
     ~H"""
     <header>
-      <img phx-track-static src={~p"/assets/images/ChaosEmeraldRed.png"} />
+      <img phx-track-static src={~p"/images/ChaosEmeraldRed.png"} />
       <div class="header-text">
         <p class="title">Chaos Control</p>
         <p class="tagline">Life is chaotic, write fun html instead</p>

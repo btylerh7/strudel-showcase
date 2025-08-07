@@ -91,7 +91,7 @@ nav {
 			text-decoration: underline;
 			background-color: var(--accent-color);
 			color: white;
-			background-image: url(/assets/images/black-arms-resized.png);
+			background-image: url(/images/black-arms-resized.png);
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -155,7 +155,7 @@ nav {
 
 	&:hover {
 		cursor: pointer;
-		background-image: url(/assets/images/black-arms-resized.png);
+		background-image: url(/images/black-arms-resized.png);
 		background-size: cover;
 	}
 
