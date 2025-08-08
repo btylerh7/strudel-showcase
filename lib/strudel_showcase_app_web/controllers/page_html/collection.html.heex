@@ -1,4 +1,38 @@
 <Layouts.app flash={@flash}>
+  <h1>My Music Library</h1>
+  <p>
+    Fun fact about me: music has been a part of my life for as long as I can remember.
+    My dad is a musician, and he began <span class="bold"> teaching me piano when I was 6.</span>
+    When I was in middle school, I did all the
+    music stuff. I did marching band, concert band. I started playing guitar. I kept learning piano. But one of the
+    most important events that happened to me was my music discovery journey.
+  </p>
+  <p>
+    My uncle lived nextdoor to us when I was growing up (well, he still does except I'm not there haha). I am not sure
+    what possessed him to do so, but one day he decided to get a JEEP. Not just any JEEP, but one of the open ones. So
+    naturally he asked me and my brother to ride with him and our cousin to town (rural Alabama) in the JEEP.
+  </p>
+  <p>
+    What happened next has stuck with me on many different levels. He put on a CD and cranked it. And that was
+    <span class="bold"> how I
+            discovered rock music.</span>
+    The album was <span class="bold">Stiff Upper Lip by AC/DC.</span>
+    To this day, I will say that I enjoy it even though
+    it is often forgotten. But it was awesome enough to start me down my journey of self discovery in music.
+  </p>
+  <p>
+    I discovered that he had a very big CD collection. He had been signed up to one of those (I assume BMG) subscriptions
+    where they would send CDs every month. So I did what every middle school kid with an iPod Touch would do: I borrowed
+    and ripped a ton of his CDs to iTunes on my family's desktop computer. Spoiler alert: I still have those! Pretty soon,
+    I started my own collection, mostly fueled from $5 CD displays that Walmart used to have (I miss those).
+  </p>
+  <p>
+    Ironically, middle school me was helping out his future self. Now, I have a renewed interest in CDs because I value
+    owning and having control of my data and media. I've been building the collection again, which is admittedly easier
+    to do when you have a job. I hope you enjoy browsing through my collection!
+  </p>
+
+  <section class="albums"></section>
   <%= for album <- @albums do %>
     <StrudelShowcaseAppWeb.MusicAlbum.render_album
       album_cover={album.cover}
@@ -6,5 +40,5 @@
       album_artist={album.artist}
       release_date={album.release_date}
     />
-  <% end %>>
+  <% end %>
 </Layouts.app>

@@ -23,9 +23,7 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
     assigns = assign(assigns, :style, style)
 
     ~H"""
-    <%= if @title != "" do %>
-      <h1>{@title}</h1>
-    <% end %>
+    <h1 :if={@title != "" && @showRepl == "true"}>{@title}</h1>
     <.repl_buttons showRepl={@showRepl} />
     <div style={@style}>
       <strudel-editor id="repl">

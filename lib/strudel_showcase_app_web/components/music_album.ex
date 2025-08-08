@@ -10,7 +10,7 @@ defmodule StrudelShowcaseAppWeb.MusicAlbum do
   def render_album(assigns) do
     ~H"""
     <article class="album" title="${albumTitle}">
-      <img src={"/albums/" <> @album_cover <> ".jpg"} />
+      <img src={@album_cover} />
       <div>
         <h2>{@album_title}</h2>
         <p>{@album_artist} - {@release_date}</p>

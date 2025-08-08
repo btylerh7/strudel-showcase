@@ -37,8 +37,17 @@ defmodule StrudelShowcaseAppWeb.PageController do
   end
 
   def collection(conn, _params) do
+    get_static_path = fn artist ->
+      fn cover -> Phoenix.VerifiedRoutes.static_path(conn, "/albums/#{artist}/#{cover}.jpg") end
+    end
+
     albums = [
-      %{album: "Load", artist: "Metallica", release: "1996", image: "metallica/load.jpg"}
+      %{
+        title: "Load",
+        artist: "Metallica",
+        release_date: "1996",
+        cover: get_static_path.("Metallica").("load")
+      }
     ]
 
     render(conn, :collection, albums: albums)

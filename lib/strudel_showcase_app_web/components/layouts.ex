@@ -21,7 +21,8 @@ defmodule StrudelShowcaseAppWeb.Layouts do
   def app(assigns) do
     navlinks = [
       %{href: "/", title: "Home"},
-      %{href: "/songs", title: "Strudel Showcase"}
+      %{href: "/songs", title: "Strudel Showcase"},
+      %{href: "/music-collection", title: "Music Collection"}
     ]
 
     assigns = assign_new(assigns, :navlinks, fn -> navlinks end)

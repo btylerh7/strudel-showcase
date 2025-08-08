@@ -1,5 +1,4 @@
 defmodule StrudelShowcaseAppWeb.Router do
-  alias StrudelShowcaseAppWeb.PageController
   use StrudelShowcaseAppWeb, :router
 
   pipeline :browser do
