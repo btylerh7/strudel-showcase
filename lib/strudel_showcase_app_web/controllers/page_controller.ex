@@ -35,4 +35,12 @@ defmodule StrudelShowcaseAppWeb.PageController do
 
     render(conn, :strudel, song: song, title: title)
   end
+
+  def collection(conn, _params) do
+    albums = [
+      %{album: "Load", artist: "Metallica", release: "1996", image: "metallica/load.jpg"}
+    ]
+
+    render(conn, :collection, albums: albums)
+  end
 end

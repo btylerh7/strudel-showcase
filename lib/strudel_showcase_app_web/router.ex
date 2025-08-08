@@ -1,4 +1,5 @@
 defmodule StrudelShowcaseAppWeb.Router do
+  alias StrudelShowcaseAppWeb.PageController
   use StrudelShowcaseAppWeb, :router
 
   pipeline :browser do
@@ -25,6 +26,11 @@ defmodule StrudelShowcaseAppWeb.Router do
     pipe_through :browser
 
     get "/:song", PageController, :strudel
+  end
+
+  scope "/music-collection", StrudelShowcaseAppWeb do
+    pipe_through :browser
+    get "/", PageController, :collection
   end
 
   # Other scopes may use custom stacks.
