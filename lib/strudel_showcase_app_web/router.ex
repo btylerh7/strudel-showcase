@@ -29,7 +29,7 @@ defmodule StrudelShowcaseAppWeb.Router do
 
   scope "/music-collection", StrudelShowcaseAppWeb do
     pipe_through :browser
-    get "/", PageController, :collection
+    get "/", CollectionController, :collection
   end
 
   # Other scopes may use custom stacks.
