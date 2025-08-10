@@ -1,4 +1,4 @@
-// @title Vengence is Mine (Radical Highway) in the Style of Doom
+// @title Vengeance is Mine (Radical Highway) in the Style of Doom
 // @by Tyler
 
 samples('github:btylerh7/audio-samples');

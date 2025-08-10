@@ -32,13 +32,6 @@
     to do when you have a job. I hope you enjoy browsing through my collection!
   </p>
 
+  <.june />
   <section class="albums"></section>
-  <%= for album <- @albums do %>
-    <StrudelShowcaseAppWeb.MusicAlbum.render_album
-      album_cover={album.cover}
-      album_title={album.title}
-      album_artist={album.artist}
-      release_date={album.release_date}
-    />
-  <% end %>
 </Layouts.app>

@@ -20,8 +20,9 @@
 body {
 	background-color: var(--app-background);
 	color: var(--app-text-color);
-	max-width: 1269px;
-	margin: 1em auto;
+	max-width: 1150px;
+	padding: 2em;
+	margin: auto;
 }
 
 h1,
@@ -161,26 +162,85 @@ nav {
 
 }
 
-.album {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 0;
-	width: fit-content;
+.collection {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
 	padding: 1rem;
-	border-radius: 5px;
+}
+
+.album {
+
+	display: grid;
+	justify-content: start;
+	gap: 0;
+	/* width: fit-content; */
+	padding: 1rem;
+	/* border-radius: 5px; */
 	border: 1px solid var(--text);
+	position: relative;
+
 
 	& div>* {
 		margin: 0;
 	}
 
-	& img {
-		max-width: 250px;
+}
+
+.cd-wrapper {
+	position: relative;
+	width: 250px;
+	aspect-ratio: 1/1;
+	perspective: 1000px;
+	margin-block: 2em;
+}
+
+.cd-case {
+	border: 2px solid pink;
+	position: absolute;
+	inset: 0;
+	/* transform-style: flat; */
+	/* perspective: 1000px; */
+	transform: translateX(-10px) translateY(-10px) rotateY(45deg);
+	z-index: -1;
+	/* transform: rotateY(-110deg); */
+
+
+}
+
+.cd-cover {
+	position: absolute;
+	inset: 0;
+	border: 2px solid violet;
+	background: var(--app-background);
+	transform: rotateY(45deg);
+	z-index: 2;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 12px;
+		height: 2px;
+		z-index: 10;
+		background: red;
+		inset: 0;
+		transform: translateX(-12px) rotateY(60deg);
 	}
+
+	& img {
+		width: 100%;
+		object-fit: cover;
+		margin-bottom: 1em;
+	}
+
 }
 
 
+@media screen and (width > 500px) {
+	.collection {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
 
 @media (prefers-color-scheme: dark) {
 	:root {

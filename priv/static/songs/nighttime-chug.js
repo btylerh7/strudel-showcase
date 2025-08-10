@@ -2,8 +2,8 @@
 // @by Tyler
 
 samples('github:eddyflux/crate')
-
 samples('github:tidalcycles/Dirt-Samples')
+
 setcpm(90/4)
 
 const songVolume = slider(1, 0.5, 1.5);

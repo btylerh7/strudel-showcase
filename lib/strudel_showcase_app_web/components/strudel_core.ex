@@ -83,14 +83,19 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
     ~H"""
     <section class="control-wrapper">
       {@description_text}
+      <p style="text-decoration: underline;">
+        <strong>NOTE: Currently not working in Chrome for unknown reason.</strong>
+      </p>
       <div class="audio-controls">
         <button class="shadow-button" id="play">Play</button>
         <button class="shadow-button" id="stop">Stop</button>
-        <%= if @showRepl == "true" do %>
-          <button class="shadow-button" onclick="window.location.href='/songs'">
-            Back to Song List
-          </button>
-        <% end %>
+        <button
+          :if={@showRepl == "true"}
+          class="shadow-button"
+          onclick="window.location.href='/songs'"
+        >
+          Back to Song List
+        </button>
       </div>
 
       <script defer>
