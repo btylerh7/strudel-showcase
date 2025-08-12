@@ -7,8 +7,21 @@
 # General application configuration
 import Config
 
+config :strudel_showcase_app, StrudelShowcaseApp.Repo,
+  database: "strudel_showcase_app_repo",
+  username: "user",
+  password: "pass",
+  hostname: "localhost"
+
 config :strudel_showcase_app,
   generators: [timestamp_type: :utc_datetime]
+
+# #Ecto 
+config :strudel_showcase_app, StrudelShowcaseApp.Repo,
+  adapter: Ecto.Adapters.SQLite3,
+  database: "priv/repo/strudel_showcase_app.sqlite3"
+
+config :strudel_showcase_app, ecto_repos: [StrudelShowcaseApp.Repo]
 
 # Configures the endpoint
 config :strudel_showcase_app, StrudelShowcaseAppWeb.Endpoint,

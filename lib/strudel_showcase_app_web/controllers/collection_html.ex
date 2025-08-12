@@ -4,8 +4,12 @@ defmodule StrudelShowcaseAppWeb.CollectionHTML do
 
   See the `collection_html` directory for all templates available.
   """
+  alias StrudelShowcaseAppWeb.CollectionDetail
   use StrudelShowcaseAppWeb, :html
   use Phoenix.LiveComponent
+
+  alias StrudelShowcaseApp.Repo
+  alias StrudelShowcaseApp.Album
 
   embed_templates "collection_html/*"
 
@@ -16,18 +20,20 @@ defmodule StrudelShowcaseAppWeb.CollectionHTML do
 
   def render_album(assigns) do
     ~H"""
-    <article class="album" title="${albumTitle}">
-      <div class="cd-wrapper">
-        <div class="cd-cover">
-          <img class="album-cover" src={@album_cover} />
+    <a class="collection-link" href={"/music-collection/#{@url_path}"}>
+      <article class="album" title="${albumTitle}">
+        <div class="cd-wrapper">
+          <div class="cd-cover">
+            <img class="album-cover" src={"/albums/#{@album_artist}/#{@album_cover}"} />
+          </div>
+          <div class="cd-case"></div>
         </div>
-        <div class="cd-case"></div>
-      </div>
-      <div>
-        <h2>{@album_title}</h2>
-        <p>{@album_artist} - {@release_date}</p>
-      </div>
-    </article>
+        <div>
+          <h2>{@album_title}</h2>
+          <p>{@album_artist} - {@release_date}</p>
+        </div>
+      </article>
+    </a>
     """
   end
 
@@ -39,34 +45,24 @@ defmodule StrudelShowcaseAppWeb.CollectionHTML do
         album_title={album.title}
         album_artist={album.artist}
         release_date={album.release_date}
+        url_path={album.url_path}
       />
     <% end %>
     """
   end
 
   def june(assigns) do
-    albums = [
-      %{
-        title: "Load",
-        artist: "Metallica",
-        release_date: "1996",
-        cover: "/albums/Metallica/load.jpg"
-      },
-      %{
-        title: "HIT ME HARD AND SOFT",
-        artist: "Billie Eilish",
-        release_date: "2024",
-        cover: "/albums/Billie Eilish/HIT ME HARD AND SOFT.jpg"
-      },
-      %{
-        title: "Ten",
-        artist: "Pearl Jam",
-        release_date: "1991",
-        cover: "/albums/Pearl Jam/Ten.jpg"
-      }
+    collection_titles = [
+      "metallica/load",
+      "billie-eilish/hit-me-hard-and-soft",
+      "pearl-jam/ten"
     ]
 
-    assigns = assign(assigns, :albums, albums)
+    album_list =
+      Repo.all(Album)
+      |> Enum.filter(fn album -> Enum.member?(collection_titles, album.url_path) end)
+
+    assigns = assign(assigns, :albums, album_list)
 
     ~H"""
     <h2>My June Music Collection</h2>
@@ -80,4 +76,5 @@ defmodule StrudelShowcaseAppWeb.CollectionHTML do
     </section>
     """
   end
+
 end

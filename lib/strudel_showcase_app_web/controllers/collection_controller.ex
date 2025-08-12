@@ -1,6 +1,8 @@
 defmodule StrudelShowcaseAppWeb.CollectionController do
   use StrudelShowcaseAppWeb, :controller
   require Logger
+  alias StrudelShowcaseApp.Repo
+  alias StrudelShowcaseApp.Album
 
   def collection(conn, _params) do
     get_static_path = fn artist ->
@@ -17,5 +19,12 @@ defmodule StrudelShowcaseAppWeb.CollectionController do
     ]
 
     render(conn, :collection, albums: albums)
+  end
+
+  def detail(conn, %{"artist" => artist, "album" => album}) do
+    url_path = artist <> "/" <> album
+    album = Repo.get_by(Album, url_path: url_path)
+
+    render(conn, :detail, album: album)
   end
 end

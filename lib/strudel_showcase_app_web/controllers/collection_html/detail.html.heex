@@ -1,0 +1,9 @@
+<Layouts.app flash={@flash}>
+  <article class="detail" title={@album.title}>
+    <img class="album-cover" src={"/albums/#{@album.artist}/#{@album.cover}"} />
+    <div>
+      <h2>{@album.title}</h2>
+      <p>{@album.artist} - {@album.release_date}</p>
+    </div>
+  </article>
+</Layouts.app>

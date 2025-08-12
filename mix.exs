@@ -55,7 +55,10 @@ defmodule StrudelShowcaseApp.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:ecto, "~> 3.10"},
+      {:ecto_sql, "~> 3.0"},
+      {:ecto_sqlite3, "~> 0.10"}
     ]
   end
 

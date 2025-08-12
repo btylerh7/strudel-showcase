@@ -11,6 +11,7 @@ defmodule StrudelShowcaseApp.Application do
       StrudelShowcaseAppWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:myapp, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: StrudelShowcaseApp.PubSub},
+      StrudelShowcaseApp.Repo,
       # Start a worker by calling: StrudelShowcaseApp.Worker.start_link(arg)
       # {StrudelShowcaseApp.Worker, arg},
       # Start to serve requests, typically the last entry
