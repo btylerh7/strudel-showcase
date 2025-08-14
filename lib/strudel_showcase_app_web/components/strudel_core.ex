@@ -27,9 +27,7 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
     <.repl_buttons showRepl={@showRepl} />
     <div style={@style}>
       <strudel-editor id="repl">
-        <!--
-        <%= raw script_content %>
-        -->
+        <!-- <%= raw @script_content %> -->
       </strudel-editor>
     </div>
     """

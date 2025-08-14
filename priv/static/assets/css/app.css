@@ -138,6 +138,11 @@ nav {
 
 	margin-bottom: 1em;
 }
+.box-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+}
 
 .control-wrapper {
 	max-width: 50ch;
@@ -170,11 +175,24 @@ nav {
 
 }
 
+/*
+ * Music Collection UI
+ */
 .collection {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 1rem;
 	padding: 1rem;
+}
+.collection-link {
+	justify-self: center;
+
+	& > * {
+		text-align: center;
+	}
+	& .cd-wrapper {
+		margin-inline: auto;
+	}
 }
 
 .album {
@@ -264,6 +282,9 @@ nav {
 }
 
 
+/*
+ * Media Queries
+ */
 @media screen and (width > 500px) {
 	.collection {
 		grid-template-columns: repeat(3, 1fr);

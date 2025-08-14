@@ -71,10 +71,9 @@ defmodule StrudelShowcaseAppWeb.CollectionHTML do
       or had a profound experience with, etc.
     </p>
 
-    <section class="collection">
+    <section class="box-grid">
       <.albums albums={@albums} />
     </section>
     """
   end
-
 end
