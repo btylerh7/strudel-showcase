@@ -1,5 +1,4 @@
 defmodule StrudelShowcaseAppWeb.Router do
-  alias StrudelShowcaseAppWeb.CollectionDetail
   use StrudelShowcaseAppWeb, :router
 
   pipeline :browser do
@@ -20,6 +19,7 @@ defmodule StrudelShowcaseAppWeb.Router do
 
     get "/", PageController, :home
     get "/songs", PageController, :songs
+    live "/study", PomodoroLive
   end
 
   scope "/songs/song", StrudelShowcaseAppWeb do

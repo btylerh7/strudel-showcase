@@ -26,7 +26,7 @@ defmodule StrudelShowcaseAppWeb.StrudelCore do
     <h1 :if={@title != "" && @showRepl == "true"}>{@title}</h1>
     <.repl_buttons showRepl={@showRepl} />
     <div style={@style}>
-      <strudel-editor id="repl">
+      <strudel-editor phx-update="ignore" id="repl">
         <!-- <%= raw @script_content %> -->
       </strudel-editor>
     </div>

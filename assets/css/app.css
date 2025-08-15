@@ -7,6 +7,7 @@
 
 	--link-color: var(--accent-color);
 	--border-radius: 0.5rem;
+	--auto-column-size: 250px;
 }
 
 *,
@@ -60,7 +61,8 @@ i {
 }
 
 header {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 	gap: 1rem;
 
 	& img {
@@ -68,7 +70,14 @@ header {
 		max-width: 5em;
 	}
 
-	& div {
+	& .logo {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+
+	}
+
+	& .header-text > div {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -86,10 +95,8 @@ header {
 }
 
 nav {
-	display: flex;
-	flex: 1;
-	justify-content: flex-end;
-	align-items: center;
+	--auto-column-size: 250px;
+	height: fit-content;
 
 	&>a {
 		text-decoration: none;
@@ -140,7 +147,7 @@ nav {
 }
 .box-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(var(--auto-column-size), 1fr));
 
 }
 
@@ -288,6 +295,12 @@ nav {
 @media screen and (width > 500px) {
 	.collection {
 		grid-template-columns: repeat(3, 1fr);
+	}
+	nav {
+		/* it does not wrap correctly without this */
+		--auto-column-size: 100px;
+		max-width: 75ch;
+		justify-content: end;
 	}
 }
 

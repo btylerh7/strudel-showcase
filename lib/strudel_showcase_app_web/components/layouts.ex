@@ -29,12 +29,14 @@ defmodule StrudelShowcaseAppWeb.Layouts do
 
     ~H"""
     <header>
-      <img phx-track-static src={~p"/images/ChaosEmeraldRed.png"} />
-      <div class="header-text">
-        <p class="title">Chaos Control</p>
-        <p class="tagline">Life is chaotic, write fun html instead</p>
+      <div class="logo">
+        <img phx-track-static src={~p"/images/ChaosEmeraldRed.png"} />
+        <div class="header-text">
+          <p class="title">Chaos Control</p>
+          <p class="tagline">Life is chaotic, write fun html instead</p>
+        </div>
       </div>
-      <nav class="nav">
+      <nav class="box-grid nav">
         <%= for navlink <- @navlinks do %>
           <a href={navlink.href}>{navlink.title}</a>
         <% end %>

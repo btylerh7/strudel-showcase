@@ -24,10 +24,34 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+let Hooks = {};
+Hooks.Countdown = {
+  tick() {
+    let remaining = this.target;
+    if (remaining <= 0) return;
+    this.el.innerText = remaining - 1;
+  
+    this.timeout = setTimeout(() => this.tick(), 1000);
+
+  },
+  mounted() {
+    this.target = this.el.dataset.target;
+    this.tick();
+  },
+  destroyed() {
+    clearTimeout(this.timeout);
+  },
+  updated() {
+    clearTimeout(this.timeout);
+    this.mounted();
+  }
+}
+
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
-  params: {_csrf_token: csrfToken}
+  params: {_csrf_token: csrfToken},
+  hooks: Hooks
 })
 
 // Show progress bar on live navigation and form submits
