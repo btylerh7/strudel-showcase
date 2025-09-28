@@ -33,9 +33,11 @@ h2 {
 
 a {
 	color: var(--app-text-color);
+
 	&:not(.collection-link) {
 		color: var(--link-color);
 	}
+
 	text-decoration: none;
 
 	&:hover {
@@ -77,7 +79,7 @@ header {
 
 	}
 
-	& .header-text > div {
+	& .header-text>div {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -145,6 +147,7 @@ nav {
 
 	margin-bottom: 1em;
 }
+
 .box-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(var(--auto-column-size), 1fr));
@@ -191,12 +194,14 @@ nav {
 	gap: 1rem;
 	padding: 1rem;
 }
+
 .collection-link {
 	justify-self: center;
 
-	& > * {
+	&>* {
 		text-align: center;
 	}
+
 	& .cd-wrapper {
 		margin-inline: auto;
 	}
@@ -226,14 +231,18 @@ nav {
 	aspect-ratio: 1/1;
 	perspective: 1000px;
 	margin-block: 2em;
+
 	&:hover {
 		& .cd-case {
 			display: none;
 			border: none;
 		}
+
 		& .cd-cover {
 			transform: rotateY(0deg);
-			&::before, &::after {
+
+			&::before,
+			&::after {
 				display: none;
 			}
 		}
@@ -263,7 +272,8 @@ nav {
 	z-index: 2;
 
 
-	&::before, &::after {
+	&::before,
+	&::after {
 		content: '';
 		position: absolute;
 		width: 15px;
@@ -271,10 +281,12 @@ nav {
 		z-index: 10;
 		background: var(--app-text-color);
 	}
+
 	&::before {
 		top: -2px;
 		left: -15px;
 	}
+
 	&::after {
 		bottom: -2px;
 		left: -15px;
@@ -288,6 +300,26 @@ nav {
 
 }
 
+#remaining {
+	display: grid;
+	max-width: fit-content;
+	margin-inline: auto;
+	padding: 1rem;
+	border: 1px solid var(--accent-color);
+}
+
+.timer-button {
+	border-radius: 0;
+	padding: 0.75em;
+}
+
+.timer-buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: fit-content;
+	margin: auto;
+	gap: 1rem;
+}
 
 /*
  * Media Queries
@@ -296,6 +328,7 @@ nav {
 	.collection {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
 	nav {
 		/* it does not wrap correctly without this */
 		--auto-column-size: 100px;

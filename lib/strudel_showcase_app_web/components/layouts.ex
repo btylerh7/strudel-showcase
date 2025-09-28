@@ -14,7 +14,7 @@ defmodule StrudelShowcaseAppWeb.Layouts do
   def repl_embed(assigns) do
     ~H"""
     <script src="https://unpkg.com/@strudel/web@latest" />
-    <script src="https://unpkg.com/@strudel/repl@latest" />
+    <script src="https://unpkg.com/@strudel/repl@1.2.3" />
     """
   end
 

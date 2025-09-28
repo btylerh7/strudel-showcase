@@ -48,23 +48,23 @@ defmodule StrudelShowcaseAppWeb.PomodoroLive do
     <Layouts.app flash={@flash}>
       <input type="hidden" id="remaining_input" value={@time_remaining} />
       <h1>Pomodoro Timer Page</h1>
-      <p>
-        Time Remaining:
-        <span id="remaining" data-seconds={@time_remaining}>{@time_remaining_formatted}</span>
-      </p>
+      <p id="remaining" data-seconds={@time_remaining}>{@time_remaining_formatted}</p>
       <input type="hidden" id="running" value={@is_running} />
       <input type="hidden" id="strudelsong" value='sound("brown").room(1).release(.5).attack(.5)' />
       <.javascript />
-      <.timer_button dispatch_command="start_timer" button_text="Start Timer" />
-      <.timer_button dispatch_command="stop_timer" button_text="Stop Timer" />
-      <.timer_button dispatch_command="reset_timer" button_text="Reset Timer" />
-      <button class="shadow-button" phx-click="toggle-type">
-        Switch between focus and Rest Mode
-      </button>
-
-      <p>If you need some background noise:</p>
-      <button class="shadow-button" onclick="playStrudel()">Start White Noise</button>
-      <button class="shadow-button" onclick="stopStrudel()">Stop White Noise</button>
+      <div class="timer-buttons">
+        <.timer_button dispatch_command="start_timer" button_text="Start Timer" />
+        <.timer_button dispatch_command="stop_timer" button_text="Stop Timer" />
+        <.timer_button dispatch_command="reset_timer" button_text="Reset Timer" />
+        <button class="shadow-button timer-button" phx-click="toggle-type">
+          Switch between focus and Rest Mode
+        </button>
+      </div>
+      <div class="timer-buttons">
+        <p style="grid-column: span 2;">If you need some background noise:</p>
+        <button class="shadow-button timer-button" onclick="playStrudel()">Start White Noise</button>
+        <button class="shadow-button timer-button" onclick="stopStrudel()">Stop White Noise</button>
+      </div>
     </Layouts.app>
     """
   end
@@ -78,7 +78,7 @@ defmodule StrudelShowcaseAppWeb.PomodoroLive do
   def timer_button(assigns) do
     ~H"""
     <button
-      class="shadow-button"
+      class="shadow-button timer-button"
       phx-click={JS.dispatch("strudel_showcase_app:#{@dispatch_command}", to: "body")}
     >
       {@button_text}
