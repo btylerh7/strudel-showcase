@@ -321,6 +321,43 @@ nav {
 	gap: 1rem;
 }
 
+table {
+	border-collapse: collapse;
+}
+
+td,
+th {
+	border-bottom: 1px solid var(--app-text-color);
+	padding: 1em;
+	text-align: left;
+}
+
+.breadcrumbs {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+
+	& :not(:last-child)::after {
+		content: ">";
+		margin-left: 1rem;
+		margin-right: 0.5rem;
+	}
+}
+
+input[type="text"] {
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+}
+
+.form-control {
+	display: grid;
+	padding-block: 0.75rem;
+
+	& label {
+		font-size: 0.75rem;
+	}
+}
+
 /*
  * Media Queries
  */

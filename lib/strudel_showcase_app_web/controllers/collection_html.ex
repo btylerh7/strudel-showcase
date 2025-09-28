@@ -76,4 +76,74 @@ defmodule StrudelShowcaseAppWeb.CollectionHTML do
     </section>
     """
   end
+
+  def edit_table(assigns) do
+    ~H"""
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Year</th>
+          <th>Cover File Name</th>
+          <th>Url Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for album <- @albums do %>
+          <tr>
+            <td><a href={"/music-collection/edit/#{album.url_path}"}>{album.title}</a></td>
+            <td>{album.artist}</td>
+            <td>{album.release_date}</td>
+            <td>{album.cover}</td>
+            <td>{album.url_path}</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    """
+  end
+
+  def edit_album(assigns) do
+    ~H"""
+    <Layouts.app flash={@flash}>
+      <div class="breadcrumbs">
+        <p><a href="/music-collection/edit">Edit</a></p>
+        <p>{@album.title} - {@album.artist}</p>
+      </div>
+      <h1>Edit album {@album.title}</h1>
+      <form method="POST" action={"/music-collection/edit/#{@album.url_path}"}>
+        <div class="form-control">
+          <label for="title">Album Title</label>
+          <input type="text" name="title" id="title" value={"#{@album.title}"} />
+        </div>
+        <div class="form-control">
+          <label for="artist">Album Artist</label>
+          <input type="text" name="artist" id="artist" value={"#{@album.artist}"} />
+        </div>
+        <div class="form-control">
+          <label for="release_date">Year</label>
+          <input type="text" name="release_date" id="release_date" value={"#{@album.release_date}"} />
+        </div>
+        <div class="form-control">
+          <label for="cover">Cover Filename</label>
+          <input type="text" name="cover" id="cover" value={"#{@album.cover}"} />
+        </div>
+        <div class="form-control">
+          <label for="url_path">URL Path</label>
+          <input type="text" name="url_path" id="url_path" value={"#{@album.url_path}"} />
+        </div>
+        <button type="submit" class="shadow-button">Update</button>
+      </form>
+      <h2>Preview:</h2>
+      <.render_album
+        album_cover={@album.cover}
+        album_title={@album.title}
+        album_artist={@album.artist}
+        release_date={@album.release_date}
+        url_path={@album.url_path}
+      />
+    </Layouts.app>
+    """
+  end
 end

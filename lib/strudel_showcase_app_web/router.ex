@@ -31,6 +31,9 @@ defmodule StrudelShowcaseAppWeb.Router do
   scope "/music-collection", StrudelShowcaseAppWeb do
     pipe_through :browser
     get "/", CollectionController, :collection
+    get "/edit", CollectionController, :edit
+    get "/edit/:artist/:album", CollectionController, :edit_album
+    post "/edit/:artist/:album", CollectionController, :update_album
     get "/:artist/:album", CollectionController, :detail
   end
 
