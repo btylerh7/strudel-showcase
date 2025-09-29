@@ -8,7 +8,8 @@ defmodule StrudelShowcaseAppWeb.PageController do
     %{href: "/nighttime-chug", title: "Nighttime Chug"},
     %{href: "/synthetic-motor-oil", title: "Synthetic Motor Oil"},
     %{href: "/vengeance-is-mine", title: "Vengeance is Mine (From Sonic Adventure 2)"},
-    %{href: "/rainy-afternoon-serenade", title: "Rainy Afternoon Serenade"}
+    %{href: "/rainy-afternoon-serenade", title: "Rainy Afternoon Serenade"},
+    %{href: "/golden-experience", title: "Golden Experience"}
   ]
 
   def home(conn, _params) do
