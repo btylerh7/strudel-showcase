@@ -1,4 +1,4 @@
-setcpm(108/4)
+setcpm(112/4)
 
 const kit = "RolandTR707";
 
