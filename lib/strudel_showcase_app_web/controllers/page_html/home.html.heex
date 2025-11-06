@@ -4,7 +4,7 @@
     title="Vengeance is Mine"
     showRepl="false"
   />
-  <h1>Welcome to my Website!</h1>
+  <h1 style="margin-top: 1em;">Welcome to my Website!</h1>
   <section class="bio">
     <p>
       Hi! My name is Tyler. If you can't tell, I love Shadow the Hedgehog. But also,
@@ -15,16 +15,20 @@
     <p><strong>This site is mobile friendly! Check it out on mobile too!</strong></p>
   </section>
   <section class="projects">
+    <h2>Nerd out with me!</h2>
     <p>
       Below are some projects I am working on right now! I love learning and building things, so I hope you enjoy the fun stuff I am making!
     </p>
-    <article class="project">
-      <h3>This Site!</h3>
-      <p class="description">
-        I have embraced learning to build a website with Elixir and Phoenix! Having fun so far! I have personal projects, my music collection,
-        and a showcase of the music I have made in Strudel! Go check them out!
-      </p>
-      <a href="https://github.com/btylerh7/strudel-showcase" target="_blank">Source Code</a>
-    </article>
+
+    <div class="container">
+      <%= for project <- @projects do %>
+        <StrudelShowcaseAppWeb.ProjectCard.card
+          title={project.title}
+          description={project.description}
+          link={project.link}
+        >
+        </StrudelShowcaseAppWeb.ProjectCard.card>
+      <% end %>
+    </div>
   </section>
 </Layouts.app>
